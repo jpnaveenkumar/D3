@@ -1,0 +1,29 @@
+.y-axis text, .x-axis text{
+    font-size: 15px;
+    fill: #635F5D;
+}
+
+.x-axis-legend, .y-axis-legend, .value{
+    font-weight: bold;
+    fill: #635F5D;
+}
+
+.desc, .circleDesc{
+    font-weight: bold;
+    font-size: 17px;
+    fill: #635F5D;
+}
+
+#genderCrimeDesc{
+    color: #635F5D;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.y-axis .tick line, .x-axis .tick line{
+    stroke: #C0C0BB;
+}
+
+.GenderCrime .domain{
+    stroke: #C0C0BB;
+}

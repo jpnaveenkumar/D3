@@ -1,0 +1,81 @@
+# Metadata for Persons Arrested for  Selected Major Offences
+---
+Identifier: '5508e7e3-6caf-4fd9-8a5f-fed95ab5fbdc'
+Name: 'islandwide-persons-arrested-for-selected-major-offences'
+Title: 'Persons Arrested for  Selected Major Offences'
+Description: 'Note: Figures are based on Annual Statistical Reports on Crime in Singapore.'
+Topics:
+  - 'Society'
+Keywords:
+  - 'arrested'
+  - 'crime'
+  - 'offence'
+Publisher:
+  Name: 'Ministry of Home Affairs - Singapore Police Force'
+  Admin 1:
+    Name: 'Ng Kok Hoe'
+    Department: 'Police Intelligence Department \ Intelligence Processing Division'
+    Email: 'NG_Kok_Hoe@spf.gov.sg'
+Sources:
+  - 'Ministry of Home Affairs - Singapore Police Force'
+Source Url: 'https://www.tablebuilder.singstat.gov.sg/publicfacing/createDataTable.action?refId=15654&exportType=csv'
+License: 'https://data.gov.sg/open-data-licence'
+Frequency: 'Annual'
+Coverage: '2011-01-01 to 2019-12-31'
+Last Updated: '2021-01-23T22:30:26.883084'
+Resources:
+  -
+    Identifier: '57bed499-17a8-4994-b18f-71f774525a61'
+    Title: 'Persons Arrested For Selected Major Offences (by age group)'
+    Url: 'https://storage.data.gov.sg/islandwide-persons-arrested-for-selected-major-offences/resources/persons-arrested-for-selected-major-offences-by-age-group-2021-01-23T22-29-37Z.csv'
+    Format: 'CSV'
+    Coverage: '2011-01-01 to 2019-12-31'
+    Last Updated: '2021-01-23T22:29:37.144858'
+    Schema:
+      -
+        Name: 'year'
+        Title: 'Year'
+        Type: 'datetime'
+        Sub Type: 'year'
+        Format: 'YYYY'
+      -
+        Name: 'level_1'
+        Title: 'Offence'
+        Type: 'text'
+        Sub Type: 'general'
+      -
+        Name: 'level_2'
+        Title: 'Age Group'
+        Type: 'text'
+        Sub Type: 'general'
+      -
+        Name: 'value'
+        Title: 'Number'
+        Type: 'numeric'
+        Sub Type: 'general'
+        Unit Of Measure: 'person'
+  -
+    Identifier: 'bbfc1f9c-efea-4dab-a0cb-560d980079cc'
+    Title: 'Persons Arrested For Selected Major Offences (by gender)'
+    Url: 'https://storage.data.gov.sg/islandwide-persons-arrested-for-selected-major-offences/resources/persons-arrested-for-selected-major-offences-by-gender-2021-01-23T22-30-26Z.csv'
+    Format: 'CSV'
+    Coverage: '2011-01-01 to 2019-12-31'
+    Last Updated: '2021-01-23T22:30:26.294163'
+    Schema:
+      -
+        Name: 'year'
+        Title: 'Year'
+        Type: 'datetime'
+        Sub Type: 'year'
+        Format: 'YYYY'
+      -
+        Name: 'level_1'
+        Title: 'Offence'
+        Type: 'text'
+        Sub Type: 'general'
+      -
+        Name: 'value'
+        Title: 'Number'
+        Type: 'numeric'
+        Sub Type: 'general'
+        Unit Of Measure: 'person'
