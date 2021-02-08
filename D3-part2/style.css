@@ -1,0 +1,22 @@
+.sphere {
+    fill: #1D2736;
+  }
+  
+.country {
+    fill: #243246;
+    stroke:#0FECE5;
+    stroke-opacity: 0.5;
+}
+
+.tooltip{
+    background-color: white;
+    border: 1px solid gray;
+}
+
+.tooltipContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+}
+}
