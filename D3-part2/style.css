@@ -8,15 +8,94 @@
     stroke-opacity: 0.5;
 }
 
-.tooltip{
-    background-color: white;
-    border: 1px solid gray;
-}
-
 .tooltipContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
     font-size: 12px;
+    position: absolute;
+    opacity: 0;
+    padding:5px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid gray;
 }
+
+.y-axis .tick line, .x-axis .tick line{
+    stroke: #C0C0BB;
+}
+
+.timeSeries .domain{
+    stroke: #C0C0BB;
+}
+
+.x-axis-legend, .y-axis-legend, .value{
+    font-weight: bold;
+    fill: #635F5D;
+}
+
+.y-axis text, .x-axis text{
+    font-size: 13px;
+    fill: #635F5D;
+}
+
+.timeSeriesTooltip{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 3px;
+    padding-left: 2px;
+    padding-top: 2px;
+    height: inherit;
+}
+
+.timeSeriesTooltipContainer
+{
+    border: 1px solid grey;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px 2px #b1b1b1;
+}
+
+.radialTree path{
+    fill: none;
+    stroke: #ff572263;
+}
+
+.radialTree{
+    border: 1px solid black;
+}
+
+.RadialTreeContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.chartButton{
+    width: 49%;
+    height: 70px; 
+    min-width: 300px;
+    border: 1px solid #00000073;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chartButtonContainer{
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+.active-btn{
+    box-shadow: 1px 1px 15px 3px #ada5a5;
+}
+
+.barChartRaceDateLegend{
+    font-weight: bold;
+    fill: #635F5D;
+    font-size: 25px;
 }

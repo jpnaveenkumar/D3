@@ -74,7 +74,7 @@ function transformDataForCrimeVsCount(data)
 
 function renderCrimeVsCount(data)
 {
-    var diameter = 600;
+    var diameter = 700;
     var color = d3.scaleOrdinal(d3.schemeCategory20);
 
     var bubble = d3.pack(data)
@@ -166,11 +166,13 @@ function renderCrimeVsCount(data)
         d3.select(this).select('circle')
             .transition()
             .duration(100)
+            .ease(d3.easeBounce)
             .attr('r', d.r);
 
         d3.select(this).selectAll('text')
             .transition()
             .duration(100)
+            .ease(d3.easeBounce)
             .style('font-size', radius/5);
 
         document.getElementById("bubbleChatDesc").innerHTML = "";

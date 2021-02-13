@@ -27,3 +27,19 @@
 .GenderCrime .domain{
     stroke: #C0C0BB;
 }
+
+.innerCircleLegend{
+    stroke: red;
+    stroke-width: 1.5;
+    fill: rgba(255, 0, 0, 0.5);
+}
+
+.innerCircleLegendText{
+    display:flex; 
+    justify-content:center;
+    align-items:center; 
+    height:inherit; 
+    color:white;
+    text-align: center;
+    font-weight: bold;
+}

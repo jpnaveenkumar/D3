@@ -53,11 +53,38 @@ function updatePieChart()
 
 function renderAgegroupVsCrimeCount(data)
 {
+    const margin = {
+        'top' : 250,
+        'left' : 250,
+        'right' : 100,
+        'bottom' : 100
+    };
+
     var dataForPie = d3.entries(data);
     
     var svg = d3.select(".ageGroupCrime");
     svgContainerForPieChart = svg.append("g")
-                .attr("transform", "translate(250,250)");
+                .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const innerCircleLegend = svgContainerForPieChart.append("circle")
+        .attr('class','innerCircleLegend')
+        .attr('cx', 0)
+        .attr('cy', 0)
+        .attr('r', 80)
+        .attr('fill', 'none');
+
+    svgContainerForPieChart.append('foreignObject')
+        .attr('x',-40)
+        .attr('y', -40)
+        .attr('width', 80)
+        .attr('height', 80)
+        .html(function(){
+            return  `
+                <div class="innerCircleLegendText">
+                    Age Group Vs Crime Count
+                </div>
+            `;
+        });
 
     const legend = svg.append('foreignObject')
     .attr('x', 400)
@@ -97,6 +124,18 @@ function renderAgegroupVsCrimeCount(data)
 function renderAgegroupVsCrimeCountBaseChart(pieWithData)
 {
 
+    var domainVsColorStroke = {
+        "Above 21 Years Old" : "#1f77b4",
+        "21 Years Old And Below" : "#ff7f0e",
+        "Youths (7 To 19 Years Old)" : "#2ca02c"
+    };
+
+    var colorStrokeVsFillColor = {
+        "#1f77b4" : "#1f77b454",
+        "#ff7f0e" : "#ff7f0e54",
+        "#2ca02c" : "#2ca02c54"
+    };
+
     var color = d3.scaleOrdinal()
         .domain(["Above 21 Years Old",
         "21 Years Old And Below",
@@ -104,7 +143,7 @@ function renderAgegroupVsCrimeCountBaseChart(pieWithData)
         .range(["#1f77b4", "#ff7f0e", "#2ca02c"]);
     
     var arcProducer = d3.arc()
-        .innerRadius(0)
+        .innerRadius(100)
         .outerRadius(200);
     
     var pieChart = svgContainerForPieChart.selectAll("path")
@@ -143,11 +182,21 @@ function renderAgegroupVsCrimeCountBaseChart(pieWithData)
     function onMouseOver(d, i)
     {
         d3.select(this)
-        .transition()
-        .duration(500)
-        .attr('d',d3.arc()
-        .innerRadius(0)
-        .outerRadius(205));
+            .transition()
+            .duration(500)
+            .ease(d3.easeBounce) 
+            .attr('d',d3.arc()
+            .innerRadius(100)
+            .outerRadius(210));
+
+        let domain = d.data.key;
+        let stroke = domainVsColorStroke[domain];
+        let fill = colorStrokeVsFillColor[stroke];
+
+        d3.select('.innerCircleLegend')
+            .style('stroke', stroke)
+            .style('fill', fill)
+        document.getElementsByClassName('innerCircleLegendText')[0].innerHTML = domain;
     }
 
     function onMouseLeave(d, i)
@@ -155,8 +204,14 @@ function renderAgegroupVsCrimeCountBaseChart(pieWithData)
         d3.select(this)
         .transition()
         .duration(500)
+        .ease(d3.easeBounce)
         .attr('d',d3.arc()
-        .innerRadius(0)
+        .innerRadius(100)
         .outerRadius(200));
+
+        d3.select('.innerCircleLegend')
+            .style('stroke', "#ff0000")
+            .style('fill', "#ff000080")
+        document.getElementsByClassName('innerCircleLegendText')[0].innerHTML = "Age Group Vs Crime Count";
     }
 }

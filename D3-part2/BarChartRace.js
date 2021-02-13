@@ -1,3 +1,5 @@
+var barChartTimeout;
+var barChartCurrentIndex=0;
 function transformDataForBarChart(data)
 {
     var parsedData = d3.nest().key(d => d["type"]).key(d => d["date"]).key(d=> d["Country.Region"]).rollup((ar)=>{
@@ -5,6 +7,12 @@ function transformDataForBarChart(data)
     }).entries(data);
     console.log(parsedData);
     initBarChart(data, parsedData);
+}
+
+function resetBarChart()
+{
+    clearInterval(barChartTimeout);
+    barChartCurrentIndex = 0;
 }
 
 function getColourForCountries(data)
@@ -35,6 +43,18 @@ async function initBarChart(data, parsedData)
     var svg = d3.select(".barChartRace");
     var chartContainer = svg.append("g")
         .attr('transform', `translate(100, 100)`);
+
+    svg.append('text')
+        .attr('x', '550')
+        .attr('y', '450')
+        .attr('class', 'barChartRaceDateLegend')
+        .text('')
+
+    svg.append('text')
+        .attr('class', 'x-axis-legend')
+        .attr('transform', `translate( ${width/2 + 70}, ${50})`)
+        .text("Cases Count");    
+        
     var dataForChar = parsedData[0]["values"][0]["values"];
     var isAxisRendered = false;
     var xAxis;
@@ -49,7 +69,7 @@ async function initBarChart(data, parsedData)
                 `;
     }
 
-    function renderData(data)
+    function renderData(data, date)
     {
         data = data.sort((a,b)=> a.value-b.value);
         const xScale = d3.scaleLinear()
@@ -75,6 +95,8 @@ async function initBarChart(data, parsedData)
         var rects = chartContainer.selectAll("rect")
             .data(data, d => d.key);
 
+        d3.select('.barChartRaceDateLegend')
+            .text(date);
 
         rects.enter()
             .append('rect')
@@ -111,10 +133,15 @@ async function initBarChart(data, parsedData)
 
     }
 
-    //renderData(dataForChar);
     var arr = parsedData[0]["values"];
-    for(var item of arr){
-        await new Promise(resolve => setTimeout(() => resolve(),500));
-        renderData(item["values"]);
-    }
+
+    barChartTimeout = setInterval(() => {
+        var item = arr[barChartCurrentIndex];
+        barChartCurrentIndex++;
+        if(barChartCurrentIndex > arr.length){
+            resetBarChart();
+            return;
+        }
+        renderData(item["values"], item["key"]);
+    }, 400);
 }

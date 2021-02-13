@@ -7,12 +7,34 @@
     <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>
 </head>
 <body>
+    <div class="RadialTreeContainer">
+      <svg class="radialTree" width="1000" height="1000"></svg>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+      <div>
+        <label for="cars">Choose Category:</label>
+        <select name="cars" id="startYearPie" style="width: 150px" onchange="switchCategory(this.value)">
+          <option value="confirmed">Confirmed Cases</option>
+          <option value="death">Dead Cases</option>
+          <option value="recovered">Recovered</option>
+        </select>
+      </div>
+      <svg class="timeSeries" width = "900" height="500"></svg>
+    </div>
     <div>
-      <svg class="worldMap" width="1100" height="500"></svg>  
+      <svg class="worldMap" width="1400" height="700"></svg> 
+      <div class="tooltipContainer">
+        <div id="tooltipCountry" style="font-weight:bold"></div>
+        <div> Confirmed Cases : <span id="confirmedCount"></span></div>
+        <div> Recovered Cases : <span id="recoveredCount"></span></div>
+        <div> Dead Cases : <span id="deadCount"></span></div>
+      </div> 
     </div>
     <svg class="barChartRace" width="800" height="500"></svg>
+    <script src="RadialTree.js"></script>
     <script src="BarChartRace.js"></script>
     <script src="WorldMap.js"></script>
+    <script src="TimeSeries.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
