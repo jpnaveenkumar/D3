@@ -34,7 +34,7 @@ function renderYearVsCrimeCount(data)
     const width = 700;
     const height = 350;
     const margin = {
-        'top' : 100,
+        'top' : 70,
         'left' : 100,
         'right' : 100,
         'bottom' : 100

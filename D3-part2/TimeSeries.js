@@ -41,7 +41,7 @@ async function renderTimeSeriesChart(data)
     const width = 700;
     const height = 350;
     const margin = {
-        'top' : 70,
+        'top' : 50,
         'left' : 100,
         'right' : 100,
         'bottom' : 100

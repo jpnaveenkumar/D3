@@ -155,7 +155,7 @@ function renderCrimeVsCount(data)
             .style('font-size', radius/5 + 5);
 
         let percent = getCrimePercent(d.data.count);
-        let content =  `The committed crime ${d.data.displayName} is ${percent} %`;
+        let content =  `The committed crime ${d.data.displayName} is ${percent} % of total Crime.`;
         document.getElementById("bubbleChatDesc").innerHTML = content;
     }
 

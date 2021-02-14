@@ -12,7 +12,10 @@ var curBtn = "barChartBtn";
 function loadBarChart()
 {
     var html = `
-        <div class="dynamicChartRenderContainer" style="display:flex;justify-content:center;">
+        <div class="dynamicChartRenderContainer" style="display:flex;justify-content:center;flex-direction:column;align-items:center">
+            <div style="display:flex;justify-content:center;margin-top:30px;font-weight:bold">
+                Year Vs Crime Count Bar Chart
+            </div>
             <svg class="YearCrime" width="960" height="500"></svg>  
         </div>
     `;
@@ -34,7 +37,10 @@ function loadBarChart()
 function loadLineChart()
 {
     var html = `
-        <div class="dynamicChartRenderContainer" style="display:flex;justify-content:center;">
+    <div class="dynamicChartRenderContainer" style="display:flex;justify-content:center;flex-direction:column;align-items:center">
+            <div style="display:flex;justify-content:center;margin-top:30px;font-weight:bold">
+                Year Vs Crime Count By Gender Line Chart
+            </div>
             <svg class="GenderCrime" width="960" height="500"></svg>  
         </div>
     `;
@@ -50,6 +56,9 @@ function loadBubbleChart()
 {
     var html = `
         <div class="dynamicChartRenderContainer" style="display: flex;align-items: center;justify-content:center;flex-direction:column">
+            <div style="display:flex;justify-content:center;margin-top:30px;font-weight:bold">
+                Crime Category with Count Bubble Chart
+            </div>
             <div style="height:30px; display:flex; justify-content:center">
                 <p style="" id="bubbleChatDesc"></p>
             </div>
@@ -68,7 +77,10 @@ function loadDonutChart()
 {
     var html = `
         <div class="dynamicChartRenderContainer" style="display: flex; flex-direction: column; justify-content:center;align-items:center;margin-top:30px">
-            <div>
+            <div style="display:flex;justify-content:center;margin-top:10px;font-weight:bold">
+                Age Group Vs Crime Count By Time Period Donut Chart
+            </div>
+            <div style="margin-top:25px;">
             <label for="cars">Choose Start Year:</label>
             <select name="cars" id="startYearPie" style="width: 150px" onchange="updatePieChart()">
                 <option value="2011">2011</option>

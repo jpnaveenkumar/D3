@@ -12,6 +12,9 @@ var curBtn = "worldMapBtn";
 function loadWorldMap()
 {
     var html = `<div class="dynamicChartRenderContainer" style="margin:10px">
+      <div style="display:flex;justify-content:center;margin-top:15px;margin-bottom:15px;font-weight:bold">
+        COVID Cases Count across Countries between 22nd Jan 2020 and 16th March 2020
+      </div>  
       <svg class="worldMap" width="1400" height="700"></svg> 
       <div class="tooltipContainer">
         <div id="tooltipCountry" style="font-weight:bold"></div>
@@ -36,8 +39,11 @@ function loadWorldMap()
 function loadBarChartRace()
 {
     var html = `
-        <div style="display:flex;justify-content:center">
-            <svg class="barChartRace dynamicChartRenderContainer" width="800" height="500"></svg>
+    <div class="dynamicChartRenderContainer" style="display:flex;justify-content:center;flex-direction:column;align-items:center">
+        <div style="display:flex;justify-content:center;margin-top:30px;font-weight:bold">
+            COVID Cases Count across Countries between 22nd Jan 2020 and 16th March 2020
+        </div>
+            <svg class="barChartRace" width="800" height="500"></svg>
         </div>
     `;
     $('.'+curBtn).removeClass('active-btn');
@@ -55,7 +61,12 @@ function loadRadialTree()
     var html =`
     <div class="RadialTreeContainer dynamicChartRenderContainer">
        <div style="margin:10px">
-            Pinch or double tap to zoom and drag to move    
+            <div style="text-align:center;font-weight:bold;display:flex;">
+                Confirmed, Death, Recovered Cases Count for all Countries in the World
+            </div>
+            <div style="text-align:center;margin-top:20px">
+                Pinch or double tap to zoom and drag to move    
+            </div>
        </div>
        <svg class="radialTree" width="800" height="600"></svg>
     </div>`;
@@ -73,7 +84,10 @@ function loadTimeSeriesChart()
 {
     var html = `
         <div class="dynamicChartRenderContainer" style="display: flex; flex-direction: column; align-items: center; margin-top:30px">
-        <div>
+        <div style="display:flex;justify-content:center;margin-top:15px;font-weight:bold">
+            Trend in total COVID cases count between 22nd Jan 2020 and 16th March 2020
+        </div>
+        <div style="margin-top:15px;">
         <label for="cars">Choose Category:</label>
         <select name="cars" id="startYearPie" style="width: 150px" onchange="switchCategory(this.value)">
             <option value="confirmed">Confirmed Cases</option>

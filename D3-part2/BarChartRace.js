@@ -143,5 +143,5 @@ async function initBarChart(data, parsedData)
             return;
         }
         renderData(item["values"], item["key"]);
-    }, 400);
+    }, 500);
 }
