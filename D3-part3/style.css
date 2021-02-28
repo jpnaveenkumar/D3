@@ -1,0 +1,39 @@
+.boldTick{
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.tick text{
+    fill: #635F5D;
+}
+
+.domain, .tick line{
+    stroke: #C0C0BB;
+}
+
+.anamolyVal{
+    font-size: 13px;
+    fill: #635F5D;
+    font-weight: bold;
+}
+
+.timeSeriesTooltipContainer
+{
+    border: 1px solid grey;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 2px 5px 2px #b1b1b1;
+}
+
+.timeSeriesTooltip{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: inherit;
+}
+
+.x-axis-legend, .y-axis-legend{
+    font-weight: bold;
+    fill: #635F5D;
+}

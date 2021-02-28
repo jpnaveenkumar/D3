@@ -1,0 +1,65 @@
+.y-axis text, .x-axis text{
+    font-size: 15px;
+    fill: #635F5D;
+}
+
+.x-axis-legend, .y-axis-legend, .value{
+    font-weight: bold;
+    fill: #635F5D;
+}
+
+.desc, .circleDesc{
+    font-weight: bold;
+    font-size: 17px;
+    fill: #635F5D;
+}
+
+#genderCrimeDesc{
+    color: #635F5D;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.y-axis .tick line, .x-axis .tick line{
+    stroke: #C0C0BB;
+}
+
+.GenderCrime .domain{
+    stroke: #C0C0BB;
+}
+
+.innerCircleLegend{
+    stroke: red;
+    stroke-width: 1.5;
+    fill: rgba(255, 0, 0, 0.5);
+}
+
+.innerCircleLegendText{
+    display:flex; 
+    justify-content:center;
+    align-items:center; 
+    height:inherit; 
+    color:white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.chartButton{
+    width: 49%;
+    height: 70px; 
+    min-width: 300px;
+    border: 1px solid #00000073;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chartButtonContainer{
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+.active-btn{
+    box-shadow: 1px 1px 15px 3px #ada5a5;
+}
