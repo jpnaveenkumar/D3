@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CricVix</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+  
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <div style="display: flex; justify-content: space-evenly;margin-top: 30px;">
+        <div class="input-field">
+            <input type="text" id="startDate" class="datepicker">
+            <label for="startDate">Start Date</label>
+        </div>
+        <div class="input-field">
+            <input type="text" id="endDate" class="datepicker">
+            <label for="endDate">End Date</label>
+        </div>
+        <div class="input-field">
+            <select onchange="onChartTypeChange(this)">
+              <option value="Top Batsmen">Top Batsmen</option>
+              <option value="Top Bowler">Top Bowler</option>
+            </select>
+            <label>Chart Type</label>
+        </div>
+        <div class="input-field">
+            <select onchange="onGameFormatChange(this)">
+              <option value="ODI">ODI Cricket</option>
+              <option value="TEST">Test Cricket</option>
+            </select>
+            <label>Game Format</label>
+        </div>
+        <div class="input-field">
+            <select onchange="onLimitChange(this)">
+              <option value="10">10</option>
+              <option value="20" selected>20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+            <label>Limit</label>
+        </div>
+    </div>
+    <svg class="BarChart" height="600" width="900"></svg>
+    <script src="index.js"></script>
+</body>
+</html>

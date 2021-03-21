@@ -1,0 +1,7 @@
+Steps To Run the Source code : 
+
+1) Start the http server inside the directory EarthTemp.
+
+    http-server --cors (port 8080)
+
+2) Open submission.html file inside the directory directory EarthTemp in the browser.
