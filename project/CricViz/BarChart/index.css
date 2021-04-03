@@ -1,0 +1,39 @@
+.tick text{
+    fill: #635F5D;
+}
+
+.inputText{
+    color: #635F5D;
+}
+
+.teamName{
+    color: #635F5D;
+    font-weight: 600;
+}
+
+.domain, .tick line{
+    stroke: #C0C0BB;
+}
+
+.x-axis-legend, .y-axis-legend, .title{
+    font-weight: 600;
+    fill: #635F5D;
+}
+
+.magnifier{
+    transition: transform .5s ease-out;
+    cursor: pointer;
+}
+
+.magnifier:hover{
+    transform: scale(1.05);
+}
+
+.VizTitle{
+    font-weight: 600;
+    color: #635F5D;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: 18px;
+}

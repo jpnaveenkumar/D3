@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CricVix</title>
+    <title>CricViz</title>
     <link rel="stylesheet" href="index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -13,13 +13,16 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
 </head>
 <body>
+    <div class="VizTitle">
+      Cricket Player Statistics Visualization
+    </div>
     <div style="display: flex; justify-content: space-evenly;margin-top: 30px;">
         <div class="input-field">
-            <input type="text" id="startDate" class="datepicker">
+            <input type="text" id="startDate" class="datepicker inputText">
             <label for="startDate">Start Date</label>
         </div>
         <div class="input-field">
-            <input type="text" id="endDate" class="datepicker">
+            <input type="text" id="endDate" class="datepicker inputText">
             <label for="endDate">End Date</label>
         </div>
         <div class="input-field">
@@ -46,7 +49,18 @@
             <label>Limit</label>
         </div>
     </div>
-    <svg class="BarChart" height="600" width="900"></svg>
+    <div id="LoadingSection" style="display: flex; align-items: center; justify-content: center;height:300px;">
+      <span><img src="./loading.jpg" height="80" width="80"></span>
+    </div>
+    <div style="display: flex;flex-wrap: wrap; justify-content: center;">
+      <svg class="BarChart" height="600" width="900"></svg>
+      <div style="width: 500px;margin-top: 50px;">
+        <div id="teamColorLegendContainer">
+        </div>
+        <div id="playerDescriptionContainer" style="margin-top: 50px;">
+        </div>
+      </div>
+    </div>
     <script src="index.js"></script>
 </body>
 </html>

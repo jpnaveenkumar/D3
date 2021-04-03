@@ -1,0 +1,12 @@
+.tick text{
+    fill: #635F5D;
+}
+
+.domain, .tick line{
+    stroke: #C0C0BB;
+}
+
+.x-axis-legend, .y-axis-legend, .title{
+    font-weight: bold;
+    fill: #635F5D;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CricViz</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
+</head>
+<body>
+    <div style="display: flex; justify-content: space-evenly;margin-top: 30px;">
+      <div class="input-field">
+        <select id="startYearDropDown" onchange="onStartYearChange(this)">
+        </select>
+        <label>Starting Year</label>
+      </div>
+      <div class="input-field">
+        <select id="endYearDropDown" onchange="onEndYearChange(this)">
+        </select>
+        <label>Ending Year</label>
+      </div>
+      <div class="input-field">
+          <select onchange="onGameFormatChange(this)">
+            <option value="ODI">ODI Cricket</option>
+            <option value="TEST">Test Cricket</option>
+          </select>
+          <label>Game Format</label>
+      </div>
+    </div>
+    <div class="svgContainer">
+      <svg class="CalendarHeatMap" height="10600" width="900"></svg>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
