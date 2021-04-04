@@ -43,6 +43,114 @@ var metaForCalendarChart = {
     "isTeamLegendLoaded" : false,
 }
 
+function openModal(matches)
+{
+    if(matches.length == 0)
+        return;
+    document.body.style.overflow = "hidden";
+    var html = `
+        <div onclick="closeModal(event)" id="Modal" class="overlay">
+            <div class="myModal"> 
+                <div style="font-weight:600">
+                    Match Date : ${matches[0]["values"][0]["Match Date"]}
+                </div>
+        `;
+
+    for(let i = 0; i < matches.length; i++){
+        html += ` 
+            <div style="margin-top:50px">
+                Match ${i+1}
+            <div>
+        `;
+        let currentMatch = matches[i]["values"];
+        let matchName = matches[i]["key"];
+        let winner;
+        let ground ;
+        let result;
+        if(currentMatch.length == 2){
+            winner = currentMatch[0]["Result"] == "Won" ? currentMatch[0] : currentMatch[1];
+            ground = winner["Ground"];
+            result = winner["Country"] + " won by " + winner["Margin"];
+        }else{
+            ground = currentMatch[0]["Ground"];
+            result = currentMatch[0]["Country"] + currentMatch[0]["Result"] + " by " + currentMatch[0]["Margin"];
+        }
+
+        html += `
+            <table>
+                <thead>
+                    <tr>
+                        <th>Match</th>
+                        <th>Ground</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>${matchName}</td>
+                        <td>${ground}</td>
+                        <td>${result}</td>
+                    </tr>
+                </tbody>
+            </table>
+        `;
+
+        if(matches[i].hasOwnProperty("achievers")){
+            html += `
+                <div style="display:flex;justify-content:center;margin-top:20px">
+                    <div style="width: 80%">
+             `;
+            html += `
+                <table>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Country</th>
+                        <th>Records</th>
+                    </tr>
+                </thead>
+                <tbody>
+            `;
+            for(let achiever of matches[i]["achievers"]){
+                let playerName = achiever["Innings Player"];
+                let country = achiever["Country"];
+                let achievement = "";
+                if(achiever["50's"] == "1.0" || achiever["100's"] == "1.0"){
+                    achievement = ` ${achiever["Innings Runs Scored"]} runs`;
+                }else if(achiever["5 Wickets"] == "1.0" || achiever["10 Wickets"] == "1.0"){
+                    achievement = ` ${achiever["Innings Wickets Taken"]} wickets`;
+                }   
+                html += `
+                    <tr>
+                        <td>${playerName}</td>
+                        <td>${country}</td>
+                        <td>${achievement}</td>
+                    </tr>
+                `;
+            }
+            html += `
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            `;
+        }
+    }
+            
+    html += `</div>
+        </div>
+    `;
+    $("body").append(html);
+    console.log(matches);
+}
+
+function closeModal(event){
+    if(event.target.id == "Modal"){
+        $("#Modal").remove();
+        document.body.style.overflow = "";
+    }
+}
+
 function loadData(){
     if(metaForCalendarChart["currentGameFormat"] == "ODI"){
         if(metaForCalendarChart["odiData"] == null){
@@ -176,11 +284,19 @@ function renderChart(data)
             let x = timeweek.count(d3.utcYear(new Date(d["Match Date"])), new Date(d["Match Date"])) * cellSize + 10;
             let y = countDay( new Date(d["Match Date"])) * cellSize + 0.5;
             d3.select(d3.select(this)._groups[0][0].parentElement)
-                .append("text")
+                .append("foreignObject")
                 .attr('class', 'tooltip')
-                .attr('x',x - 30)
-                .attr('y',y - 20)
-                .text(d["Match Date"]);
+                .attr('x',x - 35)
+                .attr('y',y - 30)
+                .attr('height', 25)
+                .attr('width', 100)
+                .html(
+                    `
+                        <div class="toolTipContainer">
+                            ${d["Match Date"]}
+                        </div>
+                    `
+                );
         })
         .on('mouseout',function(d){
             d3.select('.tooltip').remove();
@@ -209,6 +325,7 @@ function renderChart(data)
             }
             console.log(achievers);
             console.log(groupedByMatch);
+            openModal(groupedByMatch);
         })
         .attr("width", cellSize - 1.5)
         .attr("height", cellSize - 1.5)
